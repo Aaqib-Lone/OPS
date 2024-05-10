@@ -22,6 +22,18 @@ def register():
     except Exception as e:
         print("Error:", str(e))
         return jsonify({"error": "Failed to register user."}), 500
+    
+
+@app.route('/details' , methods = ['POST'])
+def details():
+        try:       
+            data= request.data
+            data=eval(data)
+            print(data)
+            return ({"data":"recieved data"})
+        except Exception as e:
+            print("Error:", str(e))
+            return jsonify({"error": "Failed to register user."}), 500
 
 @app.route('/login' , methods = ['POST'])
 def login():
